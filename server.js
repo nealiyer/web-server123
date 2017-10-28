@@ -1,7 +1,7 @@
 var express = require ('express');
 var path = require('path');
 var app = express();
-
+var PORT = process.env.PORT || 3000;
 var middleware = require('./middleware.js')
 
 
@@ -16,7 +16,7 @@ res.send('About Us!');
 var correctedpath = path.normalize(__dirname); 
 
 app.use(express.static( correctedpath +'/public'));
-app.listen(3000, function(){
-	console.log('Express Server Started!');
+app.listen(PORT, function(){
+	console.log('Express Server Started on port '+ PORT + "!");
 });
 
